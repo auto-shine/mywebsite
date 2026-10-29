@@ -1,0 +1,17 @@
+{
+  "name": "auto-shine-booking",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Postcode-priced booking system for AutoShine that reads and writes an iCloud (Apple) calendar",
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "test-email": "node scripts/send-test-email.mjs"
+  },
+  "dependencies": {
+    "tsdav": "^2.1.5"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,142 @@
+# AutoShine. Static site in /public, booking API in /netlify/functions.
+# NOTE: the old config ran "node build.mjs" and published "dist". That build script was not
+# in the files supplied, so this publishes the ready-made /public folder instead.
+
+[build]
+  publish = "public"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "no-store"
+
+[[redirects]]
+  from = "/home"
+  to = "/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/cart"
+  to = "/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/cart/*"
+  to = "/"
+  status = 301
+  force = false
+
+# Old addresses from the previous site (Google still lists them as 404). Permanent redirects.
+[[redirects]]
+  from = "/our-mobile-detailing-services"
+  to = "/premium-detailing-services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/areas-covered-by-autoshine"
+  to = "/area-covered"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/locationmaster"
+  to = "/area-covered"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/car-detailing-manchester"
+  to = "/manchester"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/car-detailing-bristol"
+  to = "/bristol"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/cardetailingbirmingham"
+  to = "/birmingham"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/frequently-asked-questions"
+  to = "/faqs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/book-now"
+  to = "/book"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/budbrooke-and-hampton-on-the-hill"
+  to = "/budbrooke-hampton-on-the-hill"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ashorne-and-newbold-pacey"
+  to = "/ashorne-newbold-pacey"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/hampton-lucy-and-charlecote"
+  to = "/hampton-lucy-charlecote"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/exterior-detailing-guildford"
+  to = "/guildford"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/exterior-detailing-nottingham"
+  to = "/nottingham"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/exterior-detailing-oxford"
+  to = "/oxford"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/exterior-detailing-harrogate"
+  to = "/harrogate"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/car-detailing-london"
+  to = "/london"
+  status = 301
+  force = true
+
